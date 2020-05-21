@@ -23,6 +23,14 @@
     </DesignTime>
   </Containee>
   <Containee
+    Name="assoc"
+    PackageName="model.eo.assoc"
+    ObjectType="JboPackage">
+    <DesignTime>
+      <Attr Name="_AS" Value="true"/>
+    </DesignTime>
+  </Containee>
+  <Containee
     Name="eo"
     PackageName="model.eo"
     ObjectType="JboPackage">

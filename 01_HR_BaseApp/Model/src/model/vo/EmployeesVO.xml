@@ -93,4 +93,9 @@
     ViewLink="model.viewlinks.EmpManagerFkLink"
     Type="oracle.jbo.RowIterator"
     IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="DepartmentsVO"
+    ViewLink="model.viewlinks.DeptMgrFkLink"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
 </ViewObject>

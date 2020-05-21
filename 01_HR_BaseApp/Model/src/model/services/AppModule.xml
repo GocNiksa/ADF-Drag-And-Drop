@@ -13,10 +13,34 @@
   <ViewUsage
     Name="EmployeesVO2"
     ViewObjectName="model.vo.EmployeesVO"/>
+  <ViewUsage
+    Name="DepartmentsVO1"
+    ViewObjectName="model.vo.DepartmentsVO"/>
+  <ViewUsage
+    Name="EmployeesVO3"
+    ViewObjectName="model.vo.EmployeesVO"/>
+  <ViewUsage
+    Name="EmployeesVO4"
+    ViewObjectName="model.vo.EmployeesVO"/>
+  <ViewUsage
+    Name="DepartmentsVO2"
+    ViewObjectName="model.vo.DepartmentsVO"/>
   <ViewLinkUsage
     Name="EmpManagerFkLink1"
     ViewLinkObjectName="model.viewlinks.EmpManagerFkLink"
     SrcViewUsageName="model.services.AppModule.EmployeesVO1"
     DstViewUsageName="model.services.AppModule.EmployeesVO2"
+    Reversed="false"/>
+  <ViewLinkUsage
+    Name="EmpDeptFkLink"
+    ViewLinkObjectName="model.viewlinks.EmpDeptFkLink"
+    SrcViewUsageName="model.services.AppModule.DepartmentsVO1"
+    DstViewUsageName="model.services.AppModule.EmployeesVO3"
+    Reversed="false"/>
+  <ViewLinkUsage
+    Name="DeptMgrFkLink"
+    ViewLinkObjectName="model.viewlinks.DeptMgrFkLink"
+    SrcViewUsageName="model.services.AppModule.EmployeesVO4"
+    DstViewUsageName="model.services.AppModule.DepartmentsVO2"
     Reversed="false"/>
 </AppModule>

@@ -1,0 +1,69 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html>
+<f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+    <af:document title="Fun With Tables" id="d1">
+        <af:messages id="m1"/>
+        <af:form id="f1">
+            <af:pageTemplate viewId="/oracle/templates/threeColumnTemplate.jspx" id="pt1">
+                <f:facet name="center">
+                    <af:table value="#{bindings.DepartmentsTestVO11.collectionModel}" var="row"
+                              rows="#{bindings.DepartmentsTestVO11.rangeSize}"
+                              emptyText="#{bindings.DepartmentsTestVO11.viewable ? 'No data to display.' : 'Access Denied.'}"
+                              rowBandingInterval="0"
+                              selectedRowKeys="#{bindings.DepartmentsTestVO11.collectionModel.selectedRow}"
+                              selectionListener="#{bindings.DepartmentsTestVO11.collectionModel.makeCurrent}"
+                              rowSelection="single" fetchSize="#{bindings.DepartmentsTestVO11.rangeSize}" id="t2">
+                        <af:column headerText="#{bindings.DepartmentsTestVO11.hints.DepartmentName.label}" id="c3"
+                                   width="200">
+                            <af:outputText value="#{row.DepartmentName}"
+                                           shortDesc="#{bindings.DepartmentsTestVO11.hints.DepartmentName.tooltip}"
+                                           id="ot1"/>
+                        </af:column>
+                    </af:table>
+                </f:facet>
+                <f:facet name="header"/>
+                <f:facet name="start">
+                    <af:panelCollection id="pc1">
+                        <f:facet name="menus"/>
+                        <f:facet name="toolbar">
+                            <af:toolbar id="t3">
+                                <af:button
+                                           text="Insert selected rows" id="b1"
+                                           actionListener="#{bindings.insertSelectedRows1.execute}"
+                                           disabled="#{!bindings.insertSelectedRows1.enabled}"/>
+                            </af:toolbar>
+                        </f:facet>
+                        <f:facet name="statusbar"/>
+                        <af:table value="#{bindings.DepartmentsVO11.collectionModel}" var="row"
+                                  rows="#{bindings.DepartmentsVO11.rangeSize}"
+                                  emptyText="#{bindings.DepartmentsVO11.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                  rowBandingInterval="0"
+                                  selectedRowKeys="#{bindings.DepartmentsVO11.collectionModel.selectedRow}"
+                                  rowSelection="multiple" fetchSize="#{bindings.DepartmentsVO11.rangeSize}" id="t1">
+                            <af:column sortProperty="#{bindings.DepartmentsVO11.hints.Selection.name}" sortable="true"
+                                       headerText="#{bindings.DepartmentsVO11.hints.Selection.label}" id="c1"
+                                       align="center">
+                                <af:selectBooleanCheckbox value="#{row.bindings.Selection.inputValue}"
+                                                          label="#{row.bindings.Selection.label}"
+                                                          shortDesc="#{bindings.DepartmentsVO11.hints.Selection.tooltip}"
+                                                          id="sbc1"/>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.DepartmentsVO11.hints.DepartmentName.name}"
+                                       sortable="true"
+                                       headerText="#{bindings.DepartmentsVO11.hints.DepartmentName.label}" id="c2"
+                                       align="center">
+                                <af:outputText value="#{row.bindings.DepartmentName.inputValue}"
+                                               shortDesc="#{bindings.DepartmentsVO11.hints.DepartmentName.tooltip}"
+                                               id="it1"/>
+                            </af:column>
+                        </af:table>
+                    </af:panelCollection>
+                </f:facet>
+                <f:facet name="branding"/>
+                <f:facet name="copyright"/>
+                <f:facet name="status"/>
+                <f:attribute name="startColumnSize" value="250"/>
+            </af:pageTemplate>
+        </af:form>
+    </af:document>
+</f:view>

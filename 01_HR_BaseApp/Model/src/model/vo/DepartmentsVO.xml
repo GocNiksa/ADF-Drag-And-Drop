@@ -4,15 +4,17 @@
 <ViewObject
   xmlns="http://xmlns.oracle.com/bc4j"
   Name="DepartmentsVO"
-  Version="12.2.1.9.14"
+  Version="12.2.1.22.48"
   InheritPersonalization="merge"
-  SelectListFlags="1"
-  FromListFlags="1"
-  WhereFlags="1"
   BindingStyle="OracleName"
   CustomQuery="false"
-  SelectAllAttributes="false"
-  PageIterMode="Full">
+  PageIterMode="Full"
+  SelectList="DepartmentsEO.DEPARTMENT_ID, 
+       DepartmentsEO.DEPARTMENT_NAME, 
+       DepartmentsEO.MANAGER_ID, 
+       DepartmentsEO.LOCATION_ID"
+  FromList="DEPARTMENTS DepartmentsEO"
+  AccessMode="DEFAULT">
   <EntityUsage
     Name="DepartmentsEO"
     Entity="model.eo.DepartmentsEO"/>
@@ -42,6 +44,22 @@
     EntityAttrName="LocationId"
     EntityUsage="DepartmentsEO"
     AliasName="LOCATION_ID"/>
+  <ViewAttribute
+    Name="Selection"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.lang.Boolean"
+    ColumnType="NUMBER"
+    AliasName="VIEW_ATTR"
+    SQLType="BIT">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="check_box"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewLinkAccessor
     Name="EmployeesVO"
     ViewLink="model.viewlinks.EmpDeptFkLink"

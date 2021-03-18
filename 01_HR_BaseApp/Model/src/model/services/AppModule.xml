@@ -4,9 +4,14 @@
 <AppModule
   xmlns="http://xmlns.oracle.com/bc4j"
   Name="AppModule"
-  Version="12.2.1.9.14"
+  Version="12.2.1.22.48"
   InheritPersonalization="merge"
-  ClearCacheOnRollback="true">
+  ClearCacheOnRollback="true"
+  ComponentClass="model.services.AppModuleImpl"
+  ComponentInterface="model.services.common.AppModule">
+  <DesignTime>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
   <ViewUsage
     Name="EmployeesVO1"
     ViewObjectName="model.vo.EmployeesVO"/>
@@ -25,6 +30,9 @@
   <ViewUsage
     Name="DepartmentsVO2"
     ViewObjectName="model.vo.DepartmentsVO"/>
+  <ViewUsage
+    Name="DepartmentsTestVO1"
+    ViewObjectName="model.vo.DepartmentsTestVO"/>
   <ViewLinkUsage
     Name="EmpManagerFkLink1"
     ViewLinkObjectName="model.viewlinks.EmpManagerFkLink"
@@ -43,4 +51,14 @@
     SrcViewUsageName="model.services.AppModule.EmployeesVO4"
     DstViewUsageName="model.services.AppModule.DepartmentsVO2"
     Reversed="false"/>
+  <ClientInterface
+    Name="__clientInterface">
+    <Method
+      Name="insertSelectedRows"
+      MethodName="insertSelectedRows">
+      <Return
+        Name="_return_type_"
+        Type="void"/>
+    </Method>
+  </ClientInterface>
 </AppModule>

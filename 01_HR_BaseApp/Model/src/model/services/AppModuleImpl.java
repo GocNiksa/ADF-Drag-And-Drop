@@ -36,7 +36,6 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
             }
         }
       
-      rsi.reset();
       rsi.closeRowSetIterator();  
         
     }

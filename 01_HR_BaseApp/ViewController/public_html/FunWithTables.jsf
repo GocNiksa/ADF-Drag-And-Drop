@@ -6,43 +6,56 @@
         <af:form id="f1">
             <af:pageTemplate viewId="/oracle/templates/threeColumnTemplate.jspx" id="pt1">
                 <f:facet name="center">
-                    <af:table value="#{bindings.DepartmentsTestVO11.collectionModel}" var="row"
-                              rows="#{bindings.DepartmentsTestVO11.rangeSize}"
-                              emptyText="#{bindings.DepartmentsTestVO11.viewable ? 'No data to display.' : 'Access Denied.'}"
-                              rowBandingInterval="0"
-                              selectedRowKeys="#{bindings.DepartmentsTestVO11.collectionModel.selectedRow}"
-                              selectionListener="#{bindings.DepartmentsTestVO11.collectionModel.makeCurrent}"
-                              rowSelection="single" fetchSize="#{bindings.DepartmentsTestVO11.rangeSize}" id="t2">
-                        <af:column headerText="#{bindings.DepartmentsTestVO11.hints.DepartmentName.label}" id="c3"
-                                   width="200">
-                            <af:outputText value="#{row.DepartmentName}"
-                                           shortDesc="#{bindings.DepartmentsTestVO11.hints.DepartmentName.tooltip}"
-                                           id="ot1"/>
-                        </af:column>
-                    </af:table>
+                    <af:panelCollection id="pc2" featuresOff="statusBar">
+                        <f:facet name="menus"/>
+                        <f:facet name="toolbar">
+                            <af:toolbar id="t4">
+                                <af:button actionListener="#{bindings.Delete.execute}" text="Delete" id="b2"/>
+                                <af:button actionListener="#{bindings.Commit.execute}" text="Commit" id="b3"/>
+                            </af:toolbar>
+                        </f:facet>
+                        <f:facet name="statusbar"/>
+                        <af:table value="#{bindings.DepartmentsTestVO11.collectionModel}" var="row"
+                                  rows="#{bindings.DepartmentsTestVO11.rangeSize}"
+                                  emptyText="#{bindings.DepartmentsTestVO11.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                  rowBandingInterval="0"
+                                  selectedRowKeys="#{bindings.DepartmentsTestVO11.collectionModel.selectedRow}"
+                                  selectionListener="#{bindings.DepartmentsTestVO11.collectionModel.makeCurrent}"
+                                  rowSelection="single" fetchSize="#{bindings.DepartmentsTestVO11.rangeSize}" id="t2"
+                                  partialTriggers="::b2" varStatus="vs">
+                            <af:column headerText="#{bindings.DepartmentsTestVO11.hints.DepartmentName.label}" id="c3"
+                                       width="200">
+                                <af:outputText value="#{row.DepartmentName}"
+                                               shortDesc="#{bindings.DepartmentsTestVO11.hints.DepartmentName.tooltip}"
+                                               id="ot1"/>
+                            </af:column>
+                        </af:table>
+                    </af:panelCollection>
                 </f:facet>
                 <f:facet name="header"/>
                 <f:facet name="start">
-                    <af:panelCollection id="pc1">
-                        <f:facet name="menus"/>
-                        <f:facet name="toolbar">
-                            <af:toolbar id="t3">
-                                <af:button
-                                           text="Insert selected rows" id="b1"
-                                           actionListener="#{bindings.insertSelectedRows1.execute}"
-                                           disabled="#{!bindings.insertSelectedRows1.enabled}"/>
-                            </af:toolbar>
+                    <af:panelCollection id="pc1" featuresOff="statusBar">
+                        <f:facet name="menus">
+                            <af:menu text="Menu" id="m2">
+                                <af:commandMenuItem text="Insert selected rows" id="cmi1"
+                                                    action="#{bindings.insertSelectedRows1.execute}"/>
+                                <af:commandMenuItem text="Select rows" id="cmi2"
+                                                    action="#{FunWithTablesBean.selectRows}"/>
+                            </af:menu>
                         </f:facet>
+                        <f:facet name="toolbar"/>
                         <f:facet name="statusbar"/>
                         <af:table value="#{bindings.DepartmentsVO11.collectionModel}" var="row"
                                   rows="#{bindings.DepartmentsVO11.rangeSize}"
                                   emptyText="#{bindings.DepartmentsVO11.viewable ? 'No data to display.' : 'Access Denied.'}"
                                   rowBandingInterval="0"
-                                  selectedRowKeys="#{bindings.DepartmentsVO11.collectionModel.selectedRow}"
-                                  rowSelection="multiple" fetchSize="#{bindings.DepartmentsVO11.rangeSize}" id="t1">
+                                  rowSelection="multiple" fetchSize="#{bindings.DepartmentsVO11.rangeSize}" id="t1"
+                                  filterModel="#{bindings.DepartmentsVO11Query.queryDescriptor}" filterVisible="true"
+                                  queryListener="#{bindings.DepartmentsVO11Query.processQuery}" varStatus="vs"
+                                  binding="#{FunWithTablesBean.departmentsTable}" columnStretching="column:c2">
                             <af:column sortProperty="#{bindings.DepartmentsVO11.hints.Selection.name}" sortable="true"
                                        headerText="#{bindings.DepartmentsVO11.hints.Selection.label}" id="c1"
-                                       align="center">
+                                       align="center" filterable="true" rowHeader="true" width="20">
                                 <af:selectBooleanCheckbox value="#{row.bindings.Selection.inputValue}"
                                                           label="#{row.bindings.Selection.label}"
                                                           shortDesc="#{bindings.DepartmentsVO11.hints.Selection.tooltip}"
@@ -51,10 +64,19 @@
                             <af:column sortProperty="#{bindings.DepartmentsVO11.hints.DepartmentName.name}"
                                        sortable="true"
                                        headerText="#{bindings.DepartmentsVO11.hints.DepartmentName.label}" id="c2"
-                                       align="center">
+                                       align="center" filterable="true" width="200">
                                 <af:outputText value="#{row.bindings.DepartmentName.inputValue}"
                                                shortDesc="#{bindings.DepartmentsVO11.hints.DepartmentName.tooltip}"
                                                id="it1"/>
+                                <f:facet name="filter">
+                                    <af:selectOneChoice id="soc1" value="#{vs.filterCriteria.DepartmentName}"
+                                                        autoSubmit="true">
+                                        <af:forEach var="listrow" items="#{bindings.DepartmentsVO12.rangeSet}">
+                                            <af:selectItem label="#{listrow.DepartmentName}" id="si1"
+                                                           value="#{listrow.DepartmentName}"/>
+                                        </af:forEach>
+                                    </af:selectOneChoice>
+                                </f:facet>
                             </af:column>
                         </af:table>
                     </af:panelCollection>
@@ -62,7 +84,9 @@
                 <f:facet name="branding"/>
                 <f:facet name="copyright"/>
                 <f:facet name="status"/>
-                <f:attribute name="startColumnSize" value="250"/>
+                <f:attribute name="startColumnSize" value="350"/>
+                <f:attribute name="footerGlobalSize" value="0"/>
+                <f:attribute name="headerGlobalSize" value="30"/>
             </af:pageTemplate>
         </af:form>
     </af:document>

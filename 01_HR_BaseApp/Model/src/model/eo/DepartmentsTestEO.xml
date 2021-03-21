@@ -22,14 +22,12 @@
     PrimaryKey="true"/>
   <Attribute
     Name="DepartmentName"
-    IsNotNull="true"
     Precision="30"
     ColumnName="DEPARTMENT_NAME"
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="DEPARTMENTS_TEST"
-    PrimaryKey="true">
+    TableName="DEPARTMENTS_TEST">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="30"/>
     </DesignTime>
@@ -42,8 +40,7 @@
     SQLType="NUMERIC"
     Type="java.lang.Integer"
     ColumnType="NUMBER"
-    TableName="DEPARTMENTS_TEST"
-    PrimaryKey="true"/>
+    TableName="DEPARTMENTS_TEST"/>
   <Attribute
     Name="LocationId"
     Precision="4"
@@ -52,8 +49,7 @@
     SQLType="NUMERIC"
     Type="java.lang.Integer"
     ColumnType="NUMBER"
-    TableName="DEPARTMENTS_TEST"
-    PrimaryKey="true"/>
+    TableName="DEPARTMENTS_TEST"/>
   <Key
     Name="DepartmentstesteoPrimaryKey"
     PrimaryKey="true">
@@ -62,9 +58,6 @@
     </DesignTime>
     <AttrArray Name="Attributes">
       <Item Value="model.eo.DepartmentsTestEO.DepartmentId"/>
-      <Item Value="model.eo.DepartmentsTestEO.DepartmentName"/>
-      <Item Value="model.eo.DepartmentsTestEO.ManagerId"/>
-      <Item Value="model.eo.DepartmentsTestEO.LocationId"/>
     </AttrArray>
   </Key>
 </Entity>

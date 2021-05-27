@@ -4,14 +4,14 @@
 <JboProject
   xmlns="http://xmlns.oracle.com/bc4j"
   Name="Model"
-  Version="12.2.1.9.14"
+  Version="12.2.1.22.48"
   SeparateXMLFiles="true"
   PackageName="model">
   <DesignTime>
     <Attr Name="_DTExpressionTypeChecking" Value="true"/>
     <Attr Name="_jbo.TypeMapEntries" Value="OracleApps"/>
     <Attr Name="_jprName" Value="../../Model.jpr"/>
-    <Attr Name="_NamedConnection" Value="hr"/>
+    <Attr Name="_NamedConnection" Value="HR"/>
     <Attr Name="_appModuleNames0" Value="model.services.AppModule"/>
   </DesignTime>
   <Containee

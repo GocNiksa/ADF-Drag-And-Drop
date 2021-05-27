@@ -1,0 +1,11 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html>
+<f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+    <af:document title="Main.jsf" id="d1">
+        <af:form id="f1" usesUpload="true">
+            <af:spacer id="s1" height="10" width="10"/>
+            <af:inputFile label="Choose file:" id="if1" valueChangeListener="#{MainBean.inputFileVCL}"
+                          autoSubmit="true"/>
+        </af:form>
+    </af:document>
+</f:view>

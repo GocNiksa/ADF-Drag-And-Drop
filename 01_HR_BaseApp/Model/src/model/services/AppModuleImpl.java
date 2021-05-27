@@ -32,7 +32,8 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
                 String departmentId = row.getAttribute("DepartmentId").toString();
                 String departmentName = row.getAttribute("DepartmentName").toString();
                 this.insertRow(departmentId, departmentName);
-                row.setAttribute("Selection", false);
+                row.removeAndRetain();
+                //row.setAttribute("Selection", false);
             }
         }
       

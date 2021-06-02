@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html>
+<f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+    <af:document title="Main.jsf" id="d1">
+        <af:form id="f1" usesUpload="true">
+            <af:spacer id="s1" height="10" width="10"/>
+            <af:panelGroupLayout id="pgl1" layout="horizontal">
+                <af:panelGroupLayout id="pgl2" layout="vertical" inlineStyle="width:500px;">
+                    <af:inputFile label="Choose file:" id="if1" valueChangeListener="#{MainBean.inputFileVCL}"
+                                  autoSubmit="true" inlineStyle="margin-left:10px;"/>
+                </af:panelGroupLayout>
+                <af:spacer id="s2" height="5" width="25"/>
+                <af:panelBox text="Image info" id="pb1" showDisclosure="false">
+                    <f:facet name="toolbar"/>
+                    <af:panelLabelAndMessage label="Filename:" id="plam3">
+                        <af:outputText value="#{MainBean.fileName}" id="ot3" partialTriggers="if1"/>
+                    </af:panelLabelAndMessage>
+                    <af:panelLabelAndMessage label="Filetype:" id="plam4">
+                        <af:outputText value="#{MainBean.fileType}" id="ot4" partialTriggers="if1"/>
+                    </af:panelLabelAndMessage>
+                    <af:panelLabelAndMessage label="Image width:" id="plam1">
+                        <af:outputText value="#{MainBean.imageWidth}" id="ot1" partialTriggers="if1"/>
+                    </af:panelLabelAndMessage>
+                    <af:panelLabelAndMessage label="Image height:" id="plam2">
+                        <af:outputText value="#{MainBean.imageHeight}" id="ot2" partialTriggers="if1"/>
+                    </af:panelLabelAndMessage>
+                </af:panelBox>
+            </af:panelGroupLayout>
+        </af:form>
+    </af:document>
+</f:view>
